@@ -2,6 +2,7 @@ A web app built with Django that allows users to generate and download custom ce
 
 
 Features:
+Check if the user’s name exists in a pre-uploaded Excel sheet.
 Generate certificates with personalized details (e.g., name, course).
 Download the generated certificate as a PDF.
 
@@ -27,20 +28,30 @@ Create a .env file in the project root and add:
 You can use the example file to get started:
   cp .env.example .env
 
-4. Run migrations:
+4. Add your details in Excel file:
+The app will check if the entered name exists in the file.
+Only names present in the sheet are allowed to generate certificates.
+
+5. Run migrations:
 python manage.py migrate
 
-5. Start the development server:
+6. Start the development server:
 python manage.py runserver
 
-6. Access the app at http://127.0.0.1:8000/.
+7. Access the app at http://127.0.0.1:8000/.
    
 
 Usage:
-Navigate to the web app’s main page to enter the details for the certificate.
-Fill in the required fields (e.g., name, course name, date).
-Click the "Generate Certificate" button to create your certificate.
-You can download the certificate in PDF format.
+1. Enter details in the Excel file containing names of people eligible for certificates:
+The app will validate users based on this file.
+Only users whose names exist in the Excel sheet can proceed.
+
+2. Enter your name on the homepage.
+If your name matches an entry in the uploaded Excel file, you will be allowed to generate a certificate.
+
+3. Generate your certificate.
+The app will fill in the certificate with your name and details.
+Click the download button to get your certificate as a PDF.
 
 
 License:
